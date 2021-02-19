@@ -3,24 +3,26 @@ import styles from "../styles/Home.module.css";
 import { faTwitter, faDribbble, faLinkedinIn, faKaggle, faMediumM, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
+import ContactLinks from "./../components/contactlinks";
+import Container from "./../components/Navbar/Nav";
+import ReactRotatingText from "react-rotating-text";
+import { useRouter } from "next/router";
 
-import ContactLinks from "../components/contactlinks";
-import Container from "../components/Navbar/Nav";
-
-var ReactRotatingText = require("react-rotating-text");
 export default function Home() {
+  const router = useRouter();
   useEffect(() => {
-    // if (window.particleInit() !== undefined) window.particleInit();
-    // if (window.initAnimatedText() !== undefined) window.initAnimatedText();
+    window.particlesInitiated = false;
+  }, [router.asPath]);
+  useEffect(() => {
+    if (window.particleInit() !== undefined) window.particleInit();
   }, []);
   return (
     <>
       <Head>
         <title>Awesome Portfolio Websites</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="assets/js/particles.min.js"></script>
-        <script src="assets/js/particle.js"></script>
-        <script src="assets/js/animatedText.js"></script>
+        <script defer src="assets/js/particles.min.js"></script>
+        <script defer src="assets/js/particle.js"></script>
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap"
           rel="stylesheet"
@@ -77,19 +79,17 @@ export default function Home() {
           </div>
         </center>
 
-        <div>
-          <div className="w-full flex flex-wrap text-lg">
-            <div className="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 w-full h-full flex flex-wrap justify-center items-center text-center p-2">
-              <div className="w-full md:w-1/2  md:mb-0 ">
-                <h2 className=" bg-clip-text text-transparent bg-gradient-to-l from-blue-700 dark:from-blue-500 to-green-500">
-                  About
-                </h2>
-                <p className="leading-snug">
-                  My name is John Doe and I am a full-stack web developer. The tech stack I primarily work with is
-                  TypeScript, React.js, Node.js, and Python. I love spending my free time learning new things and
-                  improving myself.
-                </p>
-              </div>
+        <div className={`${styles.about} w-full flex flex-wrap text-lg`}>
+          <div className="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 w-full h-full flex flex-wrap justify-center items-center text-center p-2">
+            <div className="w-full md:w-1/2  md:mb-0 ">
+              <h2 className=" bg-clip-text text-transparent bg-gradient-to-l from-blue-700 dark:from-blue-500 to-green-500">
+                About
+              </h2>
+              <p className="leading-snug">
+                My name is John Doe and I am a full-stack web developer. The tech stack I primarily work with is
+                TypeScript, React.js, Node.js, and Python. I love spending my free time learning new things and
+                improving myself.
+              </p>
             </div>
           </div>
           <footer className="w-full pt-20 pb-2 text-sm font-light text-center text-gray-600 bg-gray-100 md:pb-6 dark:bg-gray-900 dark:text-gray-100">

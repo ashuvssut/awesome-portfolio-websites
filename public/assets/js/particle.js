@@ -1,5 +1,5 @@
 /* ---- particles.js config ---- */
-let particlesInitiated = false;
+var particlesInitiated = false;
 function particleInit(){
 	if(particlesInitiated === false){
 		particlesInitiated = true;
@@ -99,5 +99,4 @@ function particleInit(){
     });
 	}
 }
-
 
